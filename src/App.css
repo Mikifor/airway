@@ -1,38 +1,205 @@
-.App {
-  text-align: center;
+.app-container {
+  display: grid;
+  grid-template-columns: 3fr 5fr;
+  gap: 20px;
+  padding: 20px;
+  height: 100vh;
+  grid-template-areas: "filters tickets";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.filters-container {
+  grid-area: filters;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.tickets-container {
+  grid-area: tickets;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ticket {
+  display: grid;
+  grid-template-areas: 
+  "up"
+  "mid"
+  'down'
+  ;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.ticket-up {
+  grid-area: up;
+  display: flex
+}
+
+.price {
+  grid-area: price;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.ticket-down {
+  grid-area: down;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-right: 10px;
+  background-color: #ffffff;
+}
+
+.ticket:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-cell {
+  width: 45px;
+  height: 50px;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.bottom-text{
+  background-color: rgb(255, 255, 255);
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  border: 1px solid #ccc;
+  border-top: 0px
+}
+
+.top-text{
   color: white;
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  background-color: rgb(253, 58, 58);
+  border: 1px solid #ccc;
 }
 
-.App-link {
-  color: #61dafb;
+.cities {
+  color: rgb(74, 74, 250);
+  font-weight: 500
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.times {
+  font-weight: lighter;
+}
+
+.city {
+  margin-right: 7px
+}
+
+select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+select:hover {
+  border-color: #007BFF;
+}
+
+select:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.onFlight {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 16px;
+}
+
+.ticket-card {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  display: grid;
+  grid-template-areas:
+  "left middle right";
+  background: #fff;
+  padding: 45px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.flight-class {
+  border: 1px solid #767676fd;
+  font-size: 14px;
+  padding: 3px;
+  margin: 2px;
+  border-radius: 3px;
+  color: #0d0d39;
+  border-color: #918d8d
+}
+
+.modal-left {
+  display: grid;
+  grid-template-areas:
+  "price class"
+  "baggage baggage";
+  grid-template-rows: 1fr 3fr 1fr;
+  width: 250px;
+  text-align: center;
+  padding: 5px;
+  border-right: 1px solid #8a8a8a
+}
+
+.modal-middle {
+  grid-area: middle;
+  margin: 15px
+}
+
+.modal-right {
+  grid-area: right;
+  padding: 15px;
+  display:block
+}
+
+.baggage {
+  display:flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  grid-area: baggage;
+  border: 1px solid #5c5c5c;
+  border-radius: 4px;
+  font-weight: 600;
+  color: white;
+  background-color: orange;
+  margin-top: 15px;
+}
+
+.close-button {
+  align-items: right;
+  justify-content: right;
+  
 }
